@@ -1,0 +1,32 @@
+<?php
+$this->title = "I miei Promozioni";
+$this->headTitle($this->title);
+?>
+<p><a href="<?php echo $this->url(array('controller'=>'staff',
+'action'=>'add'));?>">Aggiungi nuovo promozione</a></p>
+<table>
+<tr>
+
+	<th> company </th>
+		 <th>	datainizio </th>
+			 	<th>datafine 	</th>
+					<th>categoria </th>
+						 	<th>descrizione </th>
+
+</tr>
+<?php foreach($this->promotion as $promotions) : ?>
+<tr>
+<td><?php echo $this->escape($promotions->company);?></td>
+<td><?php echo $this->escape($promotions->datebegin);?></td>
+<td><?php echo $this->escape($promotions->datefine);?></td>
+<td><?php echo $this->escape($promotions->category);?></td>
+<td><?php echo $this->escape($promotions->description);?></td>
+<td>
+<a href="<?php echo $this->url(array('controller'=>'staff',
+'action'=>'editprom', 'promoid'=>$promotions->promoid));?>">Edit</a>
+<a href="<?php echo $this->url(array('controller'=>'staff',
+'action'=>'delete', 'promoid'=>$promotions->promoid));?>">Delete</a>
+</td>
+</tr>
+<?php endforeach; ?>
+</table>

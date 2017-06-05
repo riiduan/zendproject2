@@ -32,11 +32,11 @@ class Application_Service_Auth
         return $this->_auth;
     }
 
-    public function getIdentity()
+    public function getIdentity($values)
     {
         $auth = $this->getAuth();
         if ($auth->hasIdentity()) {
-            return $auth->getIdentity();
+            return $auth->getIdentity($values);
         }
         return false;
     }

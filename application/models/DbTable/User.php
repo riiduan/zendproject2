@@ -35,8 +35,8 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
       'name' => $name,
       'surname' =>$surname,
       'email' => $email,);
-
-    $this->update($data, 'username ='. $username);
+      $where['username = ?']  = (string)$username;
+    $this->update($data,$where);
     }
 
 

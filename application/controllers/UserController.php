@@ -2,11 +2,12 @@
 
 class UserController extends Zend_Controller_Action
 {
+    private  $_authService;
 
     public function init()
     {
       $this->_authService = new Application_Service_Auth();
-      $this->_helper->layout->setLayout('main');
+      $this->_helper->layout->setLayout('user');
     }
 
     public function indexAction()
@@ -19,9 +20,8 @@ class UserController extends Zend_Controller_Action
       $form = new Application_Form_Registra();
       $form->submit->setLabel('Salva');
       $this->view->form = $form;
-      $this->view->userx = $this->_authService->getIdentity()->username;
 
-      if ($this->getRequest()->isPost()){
+          if ($this->getRequest()->isPost()){
 
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
@@ -40,10 +40,12 @@ class UserController extends Zend_Controller_Action
             }
       }
       else {
-      $userx= $this->_authService->getIdentity()->username;
+
+      $userx= $this->_authService->getIdentity();
+      $nome=$userx['username'];
 
           $users = new Application_Model_DbTable_User();
-          $form->populate($users->getUserByName('mario'));
+         $form->populate($users->getUserByName($nome));
 
 
 

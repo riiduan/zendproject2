@@ -94,7 +94,7 @@ class PublicController extends Zend_Controller_Action {
             $form->setDescription('Autenticazione fallita. Riprova');
             return $this->render('login');
         }
-        $this->_authService->getIdentity()->level;
+        $this->_authService->authenticate($form->getValues());
         return $this->_helper->redirector('index' );
     }
 

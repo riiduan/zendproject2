@@ -1,0 +1,56 @@
+
+<div class="container">
+        <div class="logo-holder">
+                <a href=" <?= $this->url(array(
+                        'controller' => 'public',
+                        'action'     => 'index',
+                        ),
+                        'default',true
+                    );
+                    ?>">Coupons</a>
+        </div>
+<ul class="nav-list">
+	<li><a href=" <?= $this->url(array(
+                        'controller' => 'public',
+                        'action'     => 'index',
+                        ),
+                        'default',true
+                    );
+                 ?>"
+		title="Home">Home</a></li>
+
+
+		    <li><a
+				href="
+		                <?= $this->url(array(
+		                        'controller' => 'staff',
+		                        'action'     => 'promotion'),
+		                        'default',true
+		                    );
+		                 ?>"
+				title="Edit">Promozioni</a></li>
+
+
+
+    <li><a
+		href="
+                <?= $this->url(array(
+                        'controller' => 'staff',
+                        'action'     => 'edit'),
+                        'default',true
+                    );
+                 ?>"
+		title="Edit">edit</a></li>
+
+    <li><a
+		href="
+                <?= $this->url(array(
+                        'controller' => 'staff',
+                        'action'     => 'logout'),
+                        'default',true
+                    );
+                 ?>"
+		title="Registrati">Logout</a></li>
+
+</ul>
+</div>
